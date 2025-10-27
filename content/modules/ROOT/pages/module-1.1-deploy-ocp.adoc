@@ -1,0 +1,102 @@
+:imagesdir: ../assets/images
+[#deploy-ocp]
+= Deploying RH Inference Server on OpenShift
+
+In this module, we will use Helm to deploy RH Inference Server on OpenShift. The chart we will use deploys [vLLM](https://docs.vllm.ai/en/latest/) with the IBM Granite **granite-3.3-2b-instruct** model, defaulting to using the [Red Hat AI Inference Server](https://docs.redhat.com/en/documentation/red_hat_ai_inference_server) official image.
+
+== Prerequisites
+
+* An OpenShift cluster with NVIDIA GPUs available (by default, configurable) and configured properly (e.g. the NVIDIA GPU Operator). **This is provided in the lab environment.**
+** This cluster should be your current context, e.g. you see the correct cluster when you run `oc whoami --show-server`
+** You need permission to create Namespaces and consume GPUs, but do not require higher privilege to deploy these charts
+
+=== Clone the Workshop Repository
+
+Clone the following repository, you will use it a lot over the course of our training:
+
+[source,sh,role=execute]
+----
+git clone https://github.com/taylorjordanNC/etx-ai-presales
+cd etx-ai-presales
+----
+
+== Deploy the RHAIIS Chart
+
+The chart is not currently published to a [Helm repository](https://helm.sh/docs/topics/chart_repository/) as it is quickly evolving. We will deploy manually via the workshop repository.
+
+[source,sh,role=execute]
+----
+helm upgrade --install -n rhaiis --create-namespace rhaiis workshop_code/deploy_vllm/rhaiis_ocp
+----
+
+This will take several minutes to deploy successfully. Check the status of the pods in the rhaiis namespace, with your preferred method (CLI or UI) to verify the deployment is progressing successfully. 
+
+== Customization
+
+The defaults for the chart is enough for a normal, default installation of OpenShift with GPU nodes configured
+in the most common ways.
+
+You may view the contents of the chart in the **`workshop_code/deploy_vllm/rhaiis_ocp`** directory.
+
+If you would like to change the model that is served, change the storage method for the model, operate on a pre-downloaded model, or other customizations, you should use [Helm values](https://helm.sh/docs/chart_template_guide/values_files/) to override the defaults. 
+
+== Verify Deployment
+
+We did not expose an external route for this deployment. We will do a quick verification of the model within the OpenShift cluster terminal, or you may use port-forwarding to access the model from your local machine.
+
+=== Port Forwarding
+
+Enter the following command to port forward the model to your local machine:
+
+[source,sh,role=execute]
+----
+oc port-forward -n rhaiis svc/rhaiis-vllm 8000:8000 &
+----
+
+Open a new terminal tab and enter the following to check the model:
+
+[source,sh,role=execute]
+----
+curl http://localhost:8000/v1/models
+----
+
+You should see the model object details in your CLI output. If you are not - ensure the model pod is in a **Running** state.
+
+Kill the process:
+
+[source,sh,role=execute]
+----
+pkill -f "oc port-forward"
+----
+
+NOTE: If you're on Windows, you may have command variations to keep in mind for the above.
+
+=== OpenShift Cluster Terminal
+
+Find the terminal icon in the top right-hand corner of the OpenShift console:
+
+image::ocp_terminal.png[]
+
+Press the **Start** button to begin a terminal session.
+
+Type the following to verify the model is up and running:
+
+[source,sh,role=execute]
+----
+curl http://rhaiis-vllm.rhaiis.svc.cluster.local:8000/v1/models
+----
+
+// Expect the following output with the model object details:
+// TODO: Add verify-model.png image
+// image::verify-model.png[]
+
+NOTE: If you are not getting the expected output, please check the status of the model deployment. Remember to ensure the model pod is in a **Running** state.
+
+== Uninstall Deployment
+
+In subsequent modules, we will use a **vllm-kserve** deployment to interact with the model served by vLLM. So let's uninstall this deployment now:
+
+[source,sh,role=execute]
+----
+helm uninstall rhaiis -n rhaiis
+----

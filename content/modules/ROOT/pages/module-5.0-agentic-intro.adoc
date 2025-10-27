@@ -1,0 +1,66 @@
+:imagesdir: ../assets/images
+
+[#agentic-intro]
+= Introduction to Agentic AI on OpenShift AI
+
+Welcome to the next evolution of AI applications! Moving beyond simple chat or RAG interactions, **agentic AI** represents intelligent systems that can reason, plan, and take actions to accomplish complex tasks.
+
+In this lab, you'll learn to build agentic AI systems using **Llama Stack** and **Model Context Protocol (MCP)** servers, all running on our enterprise-grade OpenShift AI platform.
+
+== What Makes AI "Agentic"?
+
+Traditional AI applications are reactive - they respond to prompts with text. **Agentic AI** is proactive - it can:
+
+* **Reason** through multi-step problems
+* **Plan** sequences of actions to achieve goals  
+* **Act** on live systems through secure tool integrations
+* **Learn** from interactions and improve over time
+
+Think of it as the difference between a helpful chatbot and an intelligent assistant that can actually get work done.
+
+== Enterprise Use Cases for Agentic AI
+
+Agentic AI systems are transforming how organizations approach complex workflows. Here are some examples:
+
+**🔧 Operations & DevOps**
+* Infrastructure monitoring and automated troubleshooting
+* Intelligent incident response and resolution
+* Natural language system queries and diagnostics
+
+**💼 Business Process Automation**  
+* Multi-step workflow orchestration
+* Cross-system data integration and analysis
+* Intelligent decision making with human oversight
+
+**📊 Data & Analytics**
+* Automated report generation and insights
+* Dynamic dashboard creation based on natural language requests
+* Real-time data analysis and anomaly detection
+
+== Meet Your Agentic AI Technology Stack
+
+In this module, we'll work with a comprehensive agentic AI platform that includes:
+
+* **https://github.com/meta-llama/llama-stack[Llama Stack]** - Meta's API framework for building agentic AI applications
+* **Model Context Protocol (MCP) Servers** - Secure connectors that allow AI agents to interact with various tools and services
+* **OpenShift AI Platform** - Enterprise-grade deployment and governance for AI workloads
+
+== Understanding Llama Stack: Your Agentic AI Foundation
+
+**Llama Stack** is Meta's comprehensive framework for building production-ready agentic AI applications. Think of it as the "Rails for AI agents" - providing structure, best practices, and enterprise-grade capabilities out of the box.
+
+== What's an MCP Server? (The Plain-English version)
+
+Think of MCP servers as plugins for AI. They give your model safe, governed access to things like databases, internal applications, or company Slack instances.
+
+* **Without MCP**: the model can only talk.
+* **With MCP**: the model can act-fetch info or take approved actions-under platform controls.
+
+== Why Deploy MCP on OpenShift AI?
+
+* **Security and Governance**: Namespaces, RBAC, and network policies keep tools isolated and controlled.
+* **Hybrid cloud**: Consistent deployment across on-prem, cloud or both.
+* **Observability**: See exactly what ran, where and when.
+* **Scalability**: Roll from a demo pod to a fleet when the use case proves out.
+
+Takeaway: The right AI platform choice determines whether "AI with tools" is a one-off demo or a repeatable, secure enterprise capability. 
