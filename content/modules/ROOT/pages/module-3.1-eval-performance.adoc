@@ -36,29 +36,29 @@ Let's set up our workbench.
 
 === Navigate to the OpenShift AI UI
 
-.Go to the OpenShift AI dashboard and select the **Data Science Project** view.
-.Choose the **lls-demo** project (or create it if it doesn't exist).
-.Click on the **Workbenches** tab.
+* Go to the OpenShift AI dashboard and select the **Data Science Project** view.
+* Choose the **lls-demo** project (or create it if it doesn't exist).
+* Click on the **Workbenches** tab.
 
 === Create a Workbench
 
-.Create a new workbench with these settings:
-+
+==== Create a new workbench with these settings:
+
 * **Name**: `guidellm-ws` (or your preferred name)
-* **Image**: Select `Standard Data Science `
+* **Image**: Select `Standard Data Science`
 * **Container size**: Small
 
-.Wait for the workbench to start (this can take a moment).
+==== Wait for the workbench to start (this can take a moment).
 
-.Once ready, click on the hyperlink to launch the JupyterLab interface.
+==== Once ready, click on the hyperlink to launch the JupyterLab interface.
 
 === Install GuideLLM
 
-.In the JupyterLab interface, open a **Terminal**.
+* In the JupyterLab interface, open a **Terminal**.
 
-.Install GuideLLM and required dependencies:
-+
-[source,bash]
+* Install GuideLLM and required dependencies:
+
+[source,console,role=execute,subs=attributes+]
 ----
 pip install guidellm
 ----

@@ -258,8 +258,8 @@ We will use these buckets during the workshop.
 
 The kubectl CLI tool can be used with OpenShift clusters for most operations. Please install `kubectl` or the `oc` CLI client depending on your preference. Ensure you download the appropriate tool for your operating system.
 
-`oc`: https://docs.okd.io/4.19/cli_reference/openshift_cli/getting-started-cli.html
-`kubectl`: https://kubernetes.io/docs/tasks/tools/#kubectl
+* `oc`: https://docs.okd.io/4.19/cli_reference/openshift_cli/getting-started-cli.html
+* `kubectl`: https://kubernetes.io/docs/tasks/tools/#kubectl
 
 === Install Tekton CLI
 
