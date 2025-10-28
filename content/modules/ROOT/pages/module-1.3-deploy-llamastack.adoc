@@ -1,0 +1,102 @@
+:imagesdir: ../assets/images
+
+[#deploy-lls]
+= Deploy Llama Stack Server with Operator on OpenShift AI 
+
+Now that our model is deployed and running, we can deploy Llama Stack to connect it to our model and tools. Llama Stack is a comprehensive platform that provides a unified interface for working with large language models, including support for various tools and integrations.
+
+== Understanding Llama Stack
+
+https://llama-stack.readthedocs.io/en/latest/[Llama Stack,window=_blank] is the open-source framework for building generative AI applications. We are going to deploy LlamaStack using the Operator and then take a look around using the client CLI and the playground UI.
+
+**Key Benefits for Enterprise:**
+* **Unified API** - Single interface for models, agents, and tools
+* **Built-in Safety** - Enterprise-grade guardrails and content filtering
+* **Tool Integration** - Secure connections to live systems via MCP servers
+* **Auditability** - Complete logging and observability
+
+== Deployment Components
+
+We'll deploy several components in sequence:
+
+1. **Llama Stack Operator** - The Kubernetes operator that manages Llama Stack deployments
+2. **OpenShift MCP Server** - A Model Context Protocol server for OpenShift integration
+3. **Llama Stack with Config** - The main Llama Stack deployment with our model configuration 
+4. **Llama Stack Playground** - A web-based interface for testing and experimentation
+
+== Step 1: Deploy the Llama Stack Operator
+
+https://github.com/llamastack/llama-stack-k8s-operator[Github Upstream link,window=_blank].
+
+The Llama Stack K8s Operator is a Kubernetes operator that automates the deployment and management of Llama Stack servers in Kubernetes environments. It provides a declarative way to manage AI model serving infrastructure. It is:
+
+. Kubernetes native and follows standard operator development pattern.
+. Supports Ollama and vLLM inference providers
+. Allows configuring and managing LlamaStack servers and client instances.
+
+NOTE: Red Hat provides a downstream version of this operator which will be GA at the end of the year for our 3.0 release. However, to ensure we're using the latest upstream features ahead of GA, we have used the upstream operator for this workshop.
+
+[source,console,role=execute,subs=attributes+]
+----
+oc apply -k workshop_code/llama-stack-operator
+----
+
+View the workshop_code/llama-stack-operator directory to examine all files that are getting deployed.
+
+== Step 2: Deploy the OpenShift MCP Server
+
+The Model Context Protocol (MCP) server provides integration capabilities with OpenShift (Red Hat builds this and it is based on the Kubernetes MCP server), allowing Llama Stack to interact with cluster resources and perform DevOps operations.
+
+[source,console,role=execute,subs=attributes+]
+----
+oc apply -k workshop_code/openshift-mcp -n lls-demo
+----
+
+This deploys:
+- MCP server deployment for OpenShift integration
+- Service account with appropriate permissions
+- Service and role bindings for cluster access
+
+== Step 3: Deploy Llama Stack with Configuration
+
+[source,console,role=execute,subs=attributes+]
+----
+oc apply -k workshop_code/llama-stack-with-config -n lls-demo
+----
+
+== Step 4: Deploy the Llama Stack Playground
+
+The playground provides a web-based interface for testing and experimenting with the deployed Llama Stack.
+
+[source,console,role=execute,subs=attributes+]
+----
+oc apply -k workshop_code/llama-stack-playground -n lls-demo
+----
+
+We will perform multiple agentic interactions using this nice playground visual! 
+
+== Verification
+
+After running all commands, verify the deployment by checking the pods in the `lls-demo` namespace:
+
+[source,console,role=execute,subs=attributes+]
+----
+oc get pods -n lls-demo
+----
+
+You should see pods for:
+- The llama32 model (from previous module)
+- Llama Stack operator
+- OpenShift MCP server
+- Llama Stack server
+- Llama Stack playground
+
+== Next Steps
+
+Once all components are running, you'll be able to:
+- Access the Llama Stack playground through the provided route
+- Test model interactions through the web interface
+- Explore the MCP server capabilities for OpenShift integration
+
+The deployment may take several minutes to complete. Monitor the pod status to ensure all components are running successfully.
+

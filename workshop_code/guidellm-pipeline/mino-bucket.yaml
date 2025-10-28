@@ -25,7 +25,7 @@ spec:
             # --- Configuration ---
             # Replace these with your MinIO server's details
             
-            MINIO_ENDPOINT = 'minio.ic-shared-minio.svc.cluster.local:9000'  # e.g., 'localhost:9000' or 'minio.example.com'
+            MINIO_ENDPOINT = 'minio-service.minio.svc.cluster.local:9000'  # e.g., 'localhost:9000' or 'minio.example.com'
             MINIO_ACCESS_KEY = 'minio'
             MINIO_SECRET_KEY = 'minio123'
             BUCKET_NAME = 'guidellm-benchmark'  # The name for the new bucket

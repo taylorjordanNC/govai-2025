@@ -1,0 +1,29 @@
+[#deploy-conclusion]
+= Conclusion to Deployment Setup Module
+
+== What We've Deployed
+
+You now have a complete Llama Stack deployment running on OpenShift AI:
+
+- **vLLM Model Server** - Llama 3.2 3B model serving via vLLM inference runtime
+- **Llama Stack Operator** - Kubernetes operator managing the Llama Stack infrastructure
+- **OpenShift MCP Server** - Model Context Protocol server for cluster integration
+- **Llama Stack Server** - Core platform with model connectivity and tool support
+- **Llama Stack Playground** - Web UI for testing and experimentation
+
+== Architecture Overview
+
+The deployment follows a microservices architecture where:
+- vLLM handles model inference and serving
+- Llama Stack provides the unified API and agent framework
+- MCP servers enable tool integration and external system connectivity
+- The operator manages the lifecycle and configuration
+
+== Next Steps
+
+In Module 2, we'll explore the agentic capabilities of your deployed Llama Stack, including:
+- Agent configuration and tool integration
+- MCP server utilization for DevOps operations
+- Advanced prompting and multi-step reasoning
+
+Your infrastructure is ready for agentic AI workloads.

@@ -80,7 +80,7 @@ spec:
     - name: upload-results
       params:
         - name: minio-api-route
-          value: 'http://minio.ic-shared-minio.svc.cluster.local:9000'
+          value: 'http://minio-service.minio.svc.cluster.local:9000'
         - name: user
           value: minio
         - name: password

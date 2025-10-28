@@ -5,7 +5,7 @@ metadata:
 spec:
   description: Upload guidellm benchmark results to s3 bucket
   params:
-    - default: 'http://minio.ic-shared-minio.svc.cluster.local:9000'
+    - default: 'http://minio-service.minio.svc.cluster.local:9000'
       description: s3 API endpoint
       name: minio-api-route
       type: string
@@ -46,7 +46,7 @@ spec:
         from botocore.client import Config
 
         # --- Get credentials and endpoint from environment variables ---
-        S3_ENDPOINT_URL = 'http://minio.ic-shared-minio.svc.cluster.local:9000'
+        S3_ENDPOINT_URL = 'http://minio-service.minio.svc.cluster.local:9000'
         S3_USERNAME = 'minio'
         S3_PASSWORD = 'minio123'
 

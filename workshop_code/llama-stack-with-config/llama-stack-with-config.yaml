@@ -1,0 +1,19 @@
+apiVersion: llamastack.io/v1alpha1
+kind: LlamaStackDistribution
+metadata:
+  name: llamastack
+spec:
+  replicas: 1
+  server:
+    containerSpec:
+      env:
+        - name: LLAMA32_URL
+          value: 'http://llama32-3b-predictor.lls-demo.svc.cluster.local:8080/v1'
+        - name: LLAMA32_TOKEN
+          value: openshift
+      name: llama-stack
+      port: 8321
+    distribution:
+      name: remote-vllm
+    userConfig:
+      configMapName: llama-stack-config

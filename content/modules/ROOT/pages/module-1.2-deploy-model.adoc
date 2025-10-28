@@ -1,0 +1,50 @@
+:imagesdir: ../assets/images
+
+[#deploy-rhoai]
+= Deploy model with vLLM on OpenShift AI
+
+We will use a kustomize deployment with model car image to get our model up and running today.
+
+You could also substitute the modelcar for a different model and adjust the arguments and fields as desired using vLLM standard args: https://docs.vllm.ai/en/stable/configuration/engine_args.html#named-arguments.
+
+View our available modelcars here: https://quay.io/repository/redhat-ai-services/modelcar-catalog?tab=tags
+
+NOTE: For the purposes of this workshop, we will not adjust our preset configuration and model, but we want you to know how it's possible! 
+
+== Deploy the vLLM model car
+
+== Log into the OpenShift via the CLI
+
+Find your OpenShift login command in the openshift console by going to the admin dropdown and selecting **Copy Login Command**.
+
+image::copy-login-command.png[]
+
+Once selected, you will click **Display token** and copy the oc login command provided.
+
+image::oc-login.png[]
+
+=== Deploy model car in lls-demo namespace
+
+NOTE: Ensure you are in the **lls-workshop** cloned directory in your local environment. 
+
+Run the following commands to deploy our model car.
+
+First, create a new project to deploy the model to.
+
+[source,console,role=execute,subs=attributes+]
+----
+oc new-project lls-demo
+----
+
+Now, deploy the model car.
+
+[source,console,role=execute,subs=attributes+]
+----
+oc apply -k workshop_code/llama32 -n lls-demo
+----
+
+Verify the model has been successfully deployed in the cluster. It should take only a few minutesto pull down the necessary images. Track progress in the pods in the **lls-demo** namespace. 
+
+NOTE: You can see the model get deployed in real time by following the pod logs. Otherwise, wait till both containers in the pod are running successfully.
+
+image::model-ready.png[]
