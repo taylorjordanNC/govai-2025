@@ -40,11 +40,7 @@ IMPORTANT: You could also use frameworks like LangChain or CrewAI instead of Lla
 
 == View Your Deployment
 
-1. Go to the OpenShift console: 
-
-+
-https://console-openshift-console.{openshift_cluster_ingress_domain}
-+
+1. Go to the OpenShift console (link provided to you when you logged into your environment). 
 
 2. Now, select the `Developer` perspective.
 
@@ -148,7 +144,5 @@ In this module, you:
 * Acted as a DevOps engineer using AI for cluster resource insight
 * Integrated your own LLM with a tool-using agent.
 * Explored OpenShift resources with natural language
-* Interacted with a Slack workspace using natural language
-* Added AI guardrails with input/output shields (Optional)
 
 You just used AI to reduce operational complexity and speed up workflows! 

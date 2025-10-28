@@ -12,7 +12,7 @@ You've now seen how to deploy Llama Stack on OpenShift and connect it to real sy
 * **Natural language interface** for infrastructure operations
 * **Multi-system workflows** triggered by simple prompts
 
-== Key Points for Customer Conversations
+== Key Takeaways
 
 **It's not just another chatbot**
 * Executes real tasks across multiple systems
@@ -20,7 +20,7 @@ You've now seen how to deploy Llama Stack on OpenShift and connect it to real sy
 * Integrates with existing infrastructure instead of replacing it
 
 **Runs on your platform** 
-* Uses standard OpenShift deployment patterns
+* Uses standard K8s/OpenShift deployment patterns
 * Follows existing RBAC and security policies
 * No external API dependencies for core functionality
 
@@ -43,31 +43,6 @@ The architecture is straightforward:
 * **ConfigMaps** - Define which tools and models are available
 * **OpenShift** - Handles deployment, security, and scaling like any other app
 
-== Customer Questions You Can Now Answer
-
-**"How is this different from ChatGPT?"**
-It executes tasks instead of just providing text. You saw it get pod logs and post them to Slack.
-
-**"What systems can it connect to?"** 
-Anything with an API. MCP servers make integration standardized - you write one plugin and it works across all your AI agents.
-
-**"Is it secure?"**
-It follows standard OpenShift RBAC. The AI can only access what you explicitly configure.
-
-**"How much does it cost?"**
-No per-query charges for internal operations. Uses your existing OpenShift infrastructure.
-
-== Common Objections
-
-**"Our team isn't ready for AI"**
-The interface is natural language - simpler than learning new CLI tools.
-
-**"We already have automation tools"**
-This works with your existing tools rather than replacing them. Think of it as a universal interface.
-
-**"AI isn't reliable enough for production"**
-All actions are logged and auditable. You can configure approval workflows for sensitive operations.
-
 == Next Steps
 
 **For pilot projects:**
@@ -76,11 +51,10 @@ All actions are logged and auditable. You can configure approval workflows for s
 * Expand to controlled actions once you're comfortable
 
 **Technical setup:**
-* OpenShift AI cluster (you can start with a small deployment)
+* K8s cluster (you can start with a small deployment)
 * Identify existing APIs that would benefit from natural language access
 * Build or deploy MCP servers for your specific tools
 
 **Resources:**
 * Llama Stack docs: https://llama-stack.readthedocs.io/
 * MCP protocol: https://modelcontextprotocol.io/
-* OpenShift AI: Contact your Red Hat team for deployment planning

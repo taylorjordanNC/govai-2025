@@ -40,7 +40,7 @@ Now, deploy the model car.
 
 [source,console,role=execute,subs=attributes+]
 ----
-oc apply -k workshop_code/llama32 -n lls-demo
+oc apply -k workshop_code/llama32
 ----
 
 Verify the model has been successfully deployed in the cluster. It should take only a few minutesto pull down the necessary images. Track progress in the pods in the **lls-demo** namespace. 

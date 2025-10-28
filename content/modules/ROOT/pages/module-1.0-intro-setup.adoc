@@ -1,3 +1,60 @@
+:imagesdir: ../assets/images
+[#deploy-intro]
+= Module 1: Deploying your model with vLLM on OpenShift AI
+
+== Introduction
+
+This module covers deploying a Gen AI model with vLLM as the inference runtime on an OpenShift AI cluster.
+
+== Learning Objectives
+
+- Deploy vLLM on OpenShift AI 
+- Understand platform-specific configuration requirements
+- Establish foundation for performance evaluation and optimization
+
+== Prerequisites
+
+- Access to target deployment environments
+- Basic familiarity with containers and Kubernetes concepts
+- Understanding of LLM serving requirements
+
+== Preparing our environment
+
+You currently are working with an OpenShift cluster with OpenShift AI deployed on top of that kubernetes cluster. We have one GPU node. 
+
+=== Deploying MinIO
+
+**Create a Data Science Project where we will deploy MinIO**
+
+1. In the Red Hat OpenShift AI user interface, create a data science project.
+2. Simply navigate to Data Science Projects
+3. Click Create Project
+4. Name the project `minio`. Ensure the resource name field matches.
+
+**Go back to OpenShift Console**
+
+image::openshift.console.png[]
+
+1. Make sure you're in the administrator view, not the developer view.
+2. Go to workloads, then pods, and confirm the selected project is correct.
+
++
+image::workloads.pods.png[]
++
+
+3. You now have a project, otherwise known as a namespace, to deploy MinIO.
+
+**Deploy MinIO**
+
+1. Click on the +("Import YAML") button.
+
+image::import.yaml.png[]
+
+2. Paste the following YAML into the box.
+
++
+[source,yaml,role=execute]
+----
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -8,7 +65,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 40Gi
   volumeMode: Filesystem
 ---
 kind: Secret
@@ -159,3 +216,69 @@ spec:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
+----
++
+
+3. Press Create.
+
+4. You should see:
+
++
+image::resources.created.png[]
++
+
+5. You will see a minio pod in the pods section of the console running. You will also see two routes:
+
+image::routes.png[]
+
+=== Creating Buckets in MinIO
+
+**Log into MinIO**
+
+1. Locate the minio-ui Route, and open its location URL in a web browser:
+
+2. When prompted, log in
+
+* user: minio
+* pass: minio123
+
+3. You should now be logged into your MinIO instance.
+
+**Create buckets**
+
+1. Click on **create a bucket**
+
+2. Name the first one `models`. Click create bucket.
+
+3. Create a second bucket named `pipelines`. Click create bucket.
+
+We will use these buckets during the workshop.
+
+=== Install the OpenShift or Kubernetes CLI tools
+
+The kubectl CLI tool can be used with OpenShift clusters for most operations. Please install `kubectl` or the `oc` CLI client depending on your preference. Ensure you download the appropriate tool for your operating system.
+
+`oc`: https://docs.okd.io/4.19/cli_reference/openshift_cli/getting-started-cli.html
+`kubectl`: https://kubernetes.io/docs/tasks/tools/#kubectl
+
+=== Install Tekton CLI
+
+** Run the below command to install the Tekton CLI if you do not have it already installed.
++
+[source,console,role=execute,subs=attributes+]
+----
+curl -sL $(curl -s https://api.github.com/repos/tektoncd/cli/releases/latest | grep "browser_download_url.*_Linux_x86_64.tar.gz" | cut -d '"' -f 4) | sudo tar -xz -C /usr/local/bin tkn
+tkn version
+----
+
+NOTE: This will prompt you for your computer's password.
+
+=== Clone the workshop repository
+
+To complete the workshop successfully, clone the workshop repository:
+
+[source,console,role="execute"]
+----
+git clone https://github.com/taylorjordanNC/lls-workshop.git
+cd lls-workshop
+----

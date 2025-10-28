@@ -1,7 +1,7 @@
 ---
 site:
-  title: LLM optimization and inference leveraging
-  url: https://taylorjordanNC.github.io/etx-ai-presales
+  title: GovAI Summit Workshop: vLLM, Agents, and Benchmarks
+  url: https://taylorjordanNC.github.io/govai-summit
   start_page: modules:ROOT:index.adoc
 
 content:
@@ -28,7 +28,7 @@ runtime:
 antora:
   extensions:
     - require: ./content/lib/dev-mode.js
-      enabled: true
+      enabled: false
 
 output:
   dir: ./www
