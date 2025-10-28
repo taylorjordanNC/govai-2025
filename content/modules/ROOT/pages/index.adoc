@@ -1,4 +1,4 @@
-= AI Workshop for OpenShift AI
+= GovAI Summit Workshop: vLLM, Agents, and Benchmarks
 
 Welcome to our hands-on AI workshop for OpenShift AI! This workshop provides practical experience with deploying, evaluating, and operationalizing LLMs in enterprise environments.
 

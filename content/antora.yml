@@ -1,12 +1,12 @@
 name: modules
-title: LLM optimization and inferencing
-version: master
+title: GovAI Summit Workshop: vLLM, Agents, and Benchmarks
+version: main
 nav:
   - modules/ROOT/nav.adoc
 
 asciidoc:
   attributes:
-    lab_name: "LLM Optimization and Inferencing"
+    lab_name: "GovAI Summit Workshop: vLLM, Agents, and Benchmarks"
     release-version: master
     page-pagination: true
     my_var: "foo"
