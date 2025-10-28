@@ -29,18 +29,6 @@ The kubectl CLI tool can be used with OpenShift clusters for most operations. Pl
 * `oc`: https://docs.okd.io/4.19/cli_reference/openshift_cli/getting-started-cli.html
 * `kubectl`: https://kubernetes.io/docs/tasks/tools/#kubectl
 
-=== Install Tekton CLI
-
-** Run the below command to install the Tekton CLI if you do not have it already installed.
-+
-[source,console,role=execute,subs=attributes+]
-----
-curl -sL $(curl -s https://api.github.com/repos/tektoncd/cli/releases/latest | grep "browser_download_url.*_Linux_x86_64.tar.gz" | cut -d '"' -f 4) | sudo tar -xz -C /usr/local/bin tkn
-tkn version
-----
-
-NOTE: This will prompt you for your computer's password.
-
 === Clone the workshop repository
 
 To complete the workshop successfully, clone the workshop repository:
