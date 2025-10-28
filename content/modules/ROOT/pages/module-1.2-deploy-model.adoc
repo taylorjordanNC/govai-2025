@@ -25,7 +25,7 @@ image::oc-login.png[]
 
 === Deploy model car in lls-demo namespace
 
-NOTE: Ensure you are in the **lls-workshop** cloned directory in your local environment. 
+NOTE: Ensure you are in our workshop root directory in your local terminal `govai-2025`.
 
 Run the following commands to deploy our model car.
 
