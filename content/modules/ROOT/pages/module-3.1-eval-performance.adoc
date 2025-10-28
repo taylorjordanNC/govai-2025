@@ -121,15 +121,21 @@ Real workloads differ significantly from stock data:
 
 Before running benchmarks, we need to delete our Llama model deployment and deploy an IBM Granite model. This is due to access restrictions to the Llama model in HuggingFace and restricted time in our workshop. 
 
+* Delete the llama32 deployment
+
 [source,console,role=execute,subs=attributes+]
 ----
-# Delete the llama32 deployment
 oc delete -k workshop_code/llama32 -n lls-demo
+----
 
-# Apply the granite-2b deployment
+* Apply the granite-2b deployment
+
+[source,console,role=execute,subs=attributes+]
+----
 oc apply -k workshop_code/granite-2b/ -n lls-demo
+----
 
-.Ensure the model deployment is up and running fully before attempting a benchmark pipeline run.
+* Ensure the model deployment is up and running fully before attempting a benchmark pipeline run.
 
 == Verify your model deployment is ready
 
