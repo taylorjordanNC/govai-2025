@@ -1,5 +1,5 @@
 name: modules
-title: GovAI Summit Workshop: vLLM, Agents, and Benchmarks
+title: "GovAI Summit Workshop: vLLM, Agents, and Benchmarks"
 version: main
 nav:
   - modules/ROOT/nav.adoc
