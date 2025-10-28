@@ -1,46 +1,44 @@
-= Agentic AI Workshop
+= AI Workshop for OpenShift AI
 
-Welcome to our ETX AI Presales hands-on Agentic AI workshop! 
+Welcome to our hands-on AI workshop for OpenShift AI! This workshop provides practical experience with deploying, evaluating, and operationalizing LLMs in enterprise environments.
 
-This workshop provides hands-on experience with enterprise AI deployment and agentic AI use cases. 
+== Module 1: Deploying Models on OpenShift AI
 
-== 🚀 Module 1: Infrastructure Setup and Deployment
+Deploy and serve LLM models using vLLM and KServe on OpenShift AI. Learn to deploy models with production-ready configurations and access them via standardized APIs.
 
-Deploy Llama Stack on OpenShift AI with vLLM inference runtime. Covers model serving, operator deployment, MCP server integration, and playground setup.
+* Deploy models using KServe on OpenShift AI
+* Configure vLLM runtime for optimal performance
+* Access models via OpenAI-compatible APIs
+* Deploy Llama Stack for agentic AI capabilities
 
-* Deploy vLLM model server with Llama 3.2 3B
-* Install Llama Stack operator and core platform
-* Configure OpenShift MCP server for cluster integration
-* Launch web-based playground interface
+== Module 2: Agentic AI for Operations
 
-== 🤖 Module 2: Agentic AI Implementation
+Build intelligent agents that can reason, plan, and execute tasks using Llama Stack and Model Context Protocol (MCP) servers.
 
-Build intelligent agents with tool integration and multi-step reasoning capabilities using the deployed infrastructure.
-
-* Configure agents with MCP tool connectivity
+* Configure agents with MCP tool connectivity for OpenShift
 * Implement DevOps automation workflows
-* Advanced prompting and reasoning patterns
-* Production-ready agent deployment strategies
+* Create agents that interact with live infrastructure
+* Monitor and orchestrate agent workflows
 
-== 🎯 Learning Outcomes
+== Module 3: Evaluating Model Performance
 
-By the end of this workshop, you will be able to:
+Measure and evaluate model performance using industry-standard tools to ensure models meet production requirements.
 
-* Deploy production-ready LLM inference servers on enterprise platforms
-* Evaluate and benchmark LLM systems for performance and accuracy  
-* Optimize vLLM configurations for specific use cases and constraints
-* Build centralized Model-as-a-Service platforms for enterprise consumption
-* Implement AI-powered development and operational automation tools
-* Create intelligent agents that can interact with live infrastructure
-* Design scalable, governed AI platforms that drive business value
+* Benchmark model performance with GuideLLM
+* Evaluate accuracy with evaluation frameworks
+* Interpret metrics like latency, throughput, and accuracy
+* Optimize model configurations for production use cases
 
-== ⏱️ Workshop Format
+== 🎯 What You'll Learn
 
-* **Duration**: 2 hours
-* **Format**: Mix of theory, hands-on labs, and real-world scenarios
-* **Prerequisites**: Basic familiarity with containers, Kubernetes, and agentic concepts.
-* **Environment**: Access to OpenShift cluster with GPU resources and external integrations (One RHOAI on OpenShift cluster with one L4 GPU node)
-* **Progression**: From basic deployment to advanced agentic automation
+By completing this workshop, you will be able to:
+
+* Deploy production-ready LLM inference on OpenShift AI
+* Build agentic AI systems for operational automation
+* Evaluate and benchmark LLM performance and accuracy
+* Configure systems to meet production requirements and SLAs
+
+Let's get started!
 
 
 

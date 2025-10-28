@@ -8,8 +8,8 @@ This module covers deploying a Gen AI model with vLLM as the inference runtime o
 
 == Learning Objectives
 
-- Deploy vLLM on OpenShift AI 
-- Understand platform-specific configuration requirements
+- Deploy an LLM with vLLM on Kubernetes 
+- Understand the basics of setting up an agentic AI system with Llama Stack and K8s
 - Establish foundation for performance evaluation and optimization
 
 == Prerequisites
@@ -279,6 +279,6 @@ To complete the workshop successfully, clone the workshop repository:
 
 [source,console,role="execute"]
 ----
-git clone https://github.com/taylorjordanNC/lls-workshop.git
-cd lls-workshop
+git clone https://github.com/taylorjordanNC/govai-2025.git
+cd govai-2025
 ----

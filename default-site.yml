@@ -1,8 +1,8 @@
 ---
 site:
   title: GovAI Summit Workshop: vLLM, Agents, and Benchmarks
-  url: https://taylorjordanNC.github.io/govai-summit
-  start_page: modules:ROOT:index.adoc
+  url: https://taylorjordanNC.github.io/govai-2025
+  start_page: modules::index.adoc
 
 content:
   sources:
